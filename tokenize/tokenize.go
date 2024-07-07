@@ -25,6 +25,7 @@ var keywords = map[string]bool{
 	"import": true,
 }
 
+// Over engineered if statement
 func IsKeyword(word string) bool{
 	return keywords[word]
 }
@@ -37,6 +38,7 @@ func ReadFile(){
 
 	scanner := bufio.NewScanner(file)
 
+	// Custom split function because I don't know if scanner class can split on space
 	scanner.Split(func(data []byte, atEOF bool) (advance int, token []byte, err error) {
         if atEOF && len(data) == 0 {
             return 0, nil, nil
